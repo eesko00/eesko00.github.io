@@ -70,6 +70,9 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
                             {project.name}
                           </h3>
                         </div>
+                        <span class="text-xs sm:text-sm text-gray-500 mt-2 sm:mt-0">
+                                              {project.dateRange}
+                        </span>
 
                         <p
                           class={`text-base sm:text-lg text-gray-600 leading-relaxed ${project.link ? "pr-12 sm:pr-14 md:pr-16" : ""}`}
@@ -90,6 +93,17 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
                             ))}
                           </div>
                         )}
+
+                        {project.bulletPoints && project.bulletPoints.length > 0 && (
+                                      <ul class="mb-4 space-y-2 text-gray-700">
+                                        {project.bulletPoints.map((point) => (
+                                          <li class="flex items-start">
+                                            <span class="mr-2">•</span>
+                                            <span>{point}</span>
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    )}
                       </div>
                     </Component>
                   </div>

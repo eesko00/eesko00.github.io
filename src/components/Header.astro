@@ -1,9 +1,12 @@
 ---
 import { siteConfig } from "../config";
 
+const hasCapability = siteConfig.projects && siteConfig.capabilities.length > 0;
+const hasSkills = siteConfig.projects && siteConfig.skills > 0;
 const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
 const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
 const hasEducation = siteConfig.education && siteConfig.education.length > 0;
+const hasEtc = siteConfig.ETC && siteConfig.ETC.length > 0;
 ---
 
 <header
@@ -21,6 +24,30 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
         </a>
       </li>
       {
+              hasExperience && (
+                <li>
+                  <a
+                    href="#experience"
+                    class="text-gray-700 hover:text-black transition-colors font-medium"
+                  >
+                    Experience
+                  </a>
+                </li>
+              )
+            }
+      {
+              hasSkills && (
+                <li>
+                  <a
+                    href="#sills"
+                    class="text-gray-700 hover:text-black transition-colors font-medium"
+                  >
+                    Skills
+                  </a>
+                </li>
+              )
+      }
+      {
         hasProjects && (
           <li>
             <a
@@ -33,16 +60,16 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
         )
       }
       {
-        hasExperience && (
-          <li>
-            <a
-              href="#experience"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
-            >
-              Experience
-            </a>
-          </li>
-        )
+              hasCapability && (
+                <li>
+                  <a
+                    href="#capabilities"
+                    class="text-gray-700 hover:text-black transition-colors font-medium"
+                  >
+                    Capability
+                  </a>
+                </li>
+              )
       }
       {
         hasEducation && (
@@ -55,6 +82,18 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
             </a>
           </li>
         )
+      }
+      {
+          hasEtc && (
+              <li>
+                <a
+                    href="#etc"
+                    class="text-gray-700 hover:text-black transition-colors font-medium"
+                >
+                  Education
+                </a>
+              </li>
+          )
       }
     </ul>
   </nav>
